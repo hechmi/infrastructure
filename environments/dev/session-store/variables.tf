@@ -26,7 +26,7 @@ variable "default_tags" {
     Project     = "session-store"
     ManagedBy   = "terraform"
     CreatedBy   = "opsclaude"
-    team        = "backend"
-    managed-by  = "opsclaude"
+    team = "backend"
+    managed-by = "opsclaude"
   }
 }

@@ -2,7 +2,7 @@
 
 terraform {
   backend "s3" {
-    bucket         = "hechmi-terraform-state"
+    bucket         = "garda-terraform-state"
     key            = "dev/session-store/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-locks"
