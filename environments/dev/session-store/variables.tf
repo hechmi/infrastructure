@@ -18,6 +18,12 @@ variable "project_name" {
   default     = "session-store"
 }
 
+variable "billing_mode" {
+  description = "DynamoDB billing mode"
+  type        = string
+  default     = "PAY_PER_REQUEST"
+}
+
 variable "default_tags" {
   description = "Default tags applied to all resources"
   type        = map(string)
@@ -26,7 +32,7 @@ variable "default_tags" {
     Project     = "session-store"
     ManagedBy   = "terraform"
     CreatedBy   = "opsclaude"
-    team        = "backend"
-    managed-by  = "opsclaude"
+    team = "backend"
+    "managed-by" = "opsclaude"
   }
 }
