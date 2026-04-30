@@ -6,7 +6,7 @@ module "user_sessions_table" {
 
   table_name   = "${var.project_name}-${var.environment}-sessions"
   hash_key     = "session_id"
-  billing_mode = "PAY_PER_REQUEST"
+  billing_mode = var.billing_mode
   environment  = var.environment
 
   tags = merge(var.default_tags, {
