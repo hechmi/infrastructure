@@ -2,10 +2,10 @@
 
 output "table_name" {
   description = "Name of the DynamoDB table"
-  value       = module.user_sessions_table.table_name
+  value       = module.dynamodb-table.table_name
 }
 
 output "table_arn" {
   description = "ARN of the DynamoDB table"
-  value       = module.user_sessions_table.table_arn
+  value       = module.dynamodb-table.table_arn
 }
