@@ -4,10 +4,10 @@
 module "user_sessions_table" {
   source = "../../modules/dynamodb-table"
 
-  table_name   = "${var.project_name}-${var.environment}-sessions"
+  table_name   = "user-sessions-dev"
   hash_key     = "session_id"
   billing_mode = "PAY_PER_REQUEST"
-  environment  = var.environment
+  environment  = "dev"
 
   tags = merge(var.default_tags, {
     "team"       = "backend"
