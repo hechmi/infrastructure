@@ -4,13 +4,12 @@
 module "s3-bucket" {
   source = "../../modules/s3-bucket"
 
-  bucket_name = "app-logs-dev-bucket"
-  environment = "dev"
+  bucket_name = "app-logs"
+  environment = var.environment
   versioning_enabled = true
   encryption_enabled = true
-
   tags = merge(var.default_tags, {
-    "team" = "gsked"
+    "team" = "platform-team"
     "managed-by" = "opsclaude"
   })
 }
