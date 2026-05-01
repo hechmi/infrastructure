@@ -71,3 +71,5 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         working-directory: ${{ matrix.directory }}
         run: terraform apply -auto-approve
+
+# Workflow v2
