@@ -2,7 +2,7 @@
 # Do not edit manually. Changes will be overwritten on next generation.
 
 module "lambda-function" {
-  source = "../../modules/lambda-function"
+  source = "../../../modules/lambda-function"
 
   runtime = "python3.12"
   memory_size = 256
