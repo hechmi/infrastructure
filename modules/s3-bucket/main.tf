@@ -1,8 +1,25 @@
-variable "bucket_name" { type = string }
-variable "environment" { type = string }
-variable "versioning_enabled" { type = bool; default = true }
-variable "encryption_enabled" { type = bool; default = true }
-variable "tags" { type = map(string); default = {} }
+variable "bucket_name" {
+  type = string
+}
+
+variable "environment" {
+  type = string
+}
+
+variable "versioning_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "encryption_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "tags" {
+  type    = map(string)
+  default = {}
+}
 
 resource "aws_s3_bucket" "this" {
   bucket = var.bucket_name
@@ -34,6 +51,14 @@ resource "aws_s3_bucket_public_access_block" "this" {
   restrict_public_buckets = true
 }
 
-output "id" { value = aws_s3_bucket.this.id }
-output "arn" { value = aws_s3_bucket.this.arn }
-output "bucket_name" { value = aws_s3_bucket.this.bucket }
+output "id" {
+  value = aws_s3_bucket.this.id
+}
+
+output "arn" {
+  value = aws_s3_bucket.this.arn
+}
+
+output "bucket_name" {
+  value = aws_s3_bucket.this.bucket
+}
