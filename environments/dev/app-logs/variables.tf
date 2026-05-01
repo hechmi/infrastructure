@@ -26,7 +26,7 @@ variable "default_tags" {
     Project     = "app-logs"
     ManagedBy   = "terraform"
     CreatedBy   = "opsclaude"
-    team = "gsked"
-    managed-by = "opsclaude"
+    team        = "platform-team"
+    managed-by  = "opsclaude"
   }
 }
