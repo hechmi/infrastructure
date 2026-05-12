@@ -14,3 +14,4 @@ module "cache_sessions_table" {
     "managed-by" = "opsclaude"
   })
 }
+
