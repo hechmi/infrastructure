@@ -10,5 +10,8 @@ module "upload_processor_lambda" {
   timeout       = 30
   environment   = var.environment
 
-  tags = var.default_tags
+  tags = merge(var.default_tags, {
+    "team" = "backend"
+    "managed-by" = "opsclaude"
+  })
 }
