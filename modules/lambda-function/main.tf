@@ -31,6 +31,16 @@ variable "tags" {
   default = {}
 }
 
+data "archive_file" "placeholder" {
+  type        = "zip"
+  output_path = "${path.module}/placeholder.zip"
+
+  source {
+    content  = "def handler(event, context): return {\"statusCode\": 200}"
+    filename = "handler.py"
+  }
+}
+
 resource "aws_lambda_function" "this" {
   function_name = var.function_name
   runtime       = var.runtime
@@ -40,8 +50,8 @@ resource "aws_lambda_function" "this" {
   role          = aws_iam_role.lambda.arn
   tags          = merge(var.tags, { Environment = var.environment })
 
-  filename         = "placeholder.zip"
-  source_code_hash = "placeholder"
+  filename         = data.archive_file.placeholder.output_path
+  source_code_hash = data.archive_file.placeholder.output_base64sha256
 }
 
 resource "aws_iam_role" "lambda" {
@@ -55,6 +65,11 @@ resource "aws_iam_role" "lambda" {
     }]
   })
   tags = var.tags
+}
+
+resource "aws_iam_role_policy_attachment" "lambda_basic" {
+  role       = aws_iam_role.lambda.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
 output "function_name" {
